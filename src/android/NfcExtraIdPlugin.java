@@ -43,15 +43,15 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 Log.i(TAG, "support nfc function");
                 if (mNfcAdapter.isEnabled()) {
                     if ("extra_id".equals(action)) {
-                        //callbackContext.success("Start of read task");
+                        callbackContext.success("Start of read task");
                         return true;
                     }
                 } else {
-                    callbackContext.error("please open nfc");
+                    callbackContext.error("Please open nfc");
                 }
             }
         } else {
-            //callbackContext.success("stop of read task");
+            callbackContext.success("Stop of read task");
         }
         return super.execute(action, rawArgs, callbackContext);
     }
@@ -90,7 +90,6 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                callbackContext.success("ok");
             }
         });
 //        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
