@@ -1,7 +1,5 @@
 ##A plugin for get NFC extra_id.
-
 ####NOTIFY: `Used to android.`
-
 ####Install:
 cordova plugin add nfcextraidplugin
 
