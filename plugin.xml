@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="nfcExtraIdPlugin" version="1.0.1"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>NfcExtraIdPlugin</name>
+    <js-module name="NfcExtraIdPlugin" src="www/NfcExtraIdPlugin.js">
+        <clobbers target="cordova.plugins.NfcExtraIdPlugin"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NfcExtraIdPlugin">
+                <param name="android-package" value="nfcExtraIdPlugin.NfcExtraIdPlugin"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.NFC"/>
+            <uses-permission android:name="android.permission.BIND_NFC_SERVICE"/>
+            <uses-feature
+                android:name="android.hardware.nfc"
+                android:required="false"/>
+        </config-file>
+        <source-file src="src/android/NfcExtraIdPlugin.java"
+                     target-dir="src/nfcExtraIdPlugin"/>
+    </platform>
+</plugin>
