@@ -1,7 +1,8 @@
 A plugin for get NFC extra_id.  
 ==============================
-NOTIFY: `Used to android`
+NOTIFY:
 --------------------------
+*  `Used to android`
 
 Install:
 -----------
@@ -20,9 +21,9 @@ Parameters
 Description  
 ------------
 Function `cordova.plugins.NfcExtraIdPlugin.show(success,error,action)` checks to see if the phone has NFC  
-and if NFC is enabled.If everything is OK, and the `action` is `"extra_id"`,the success callback is called with a message  
-of "Start of read task".If you pass in any String to replace `action`,the success callback is called with a message  
-of "Stop of read task".  
+and if NFC is enabled.If everything is OK, and the `action` is `"extra_id"`,the success callback is called  
+with a message of "Start of read task".If you pass in any String to replace `action`,the success callback  
+is called with a message of "Stop of read task".  
 
 Example :  
 ---------
