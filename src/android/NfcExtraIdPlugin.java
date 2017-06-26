@@ -43,7 +43,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 Log.i(TAG, "support nfc function");
                 if (mNfcAdapter.isEnabled()) {
                     if ("extra_id".equals(action)) {
-                        callbackContext.success("Start of read task");
+                        //callbackContext.success("Start of read task");
                         return true;
                     }
                 } else {
@@ -51,7 +51,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 }
             }
         } else {
-            callbackContext.success("stop of read task");
+            //callbackContext.success("stop of read task");
         }
         return super.execute(action, rawArgs, callbackContext);
     }
@@ -84,8 +84,8 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
 
     private void showDialog(String mStr) {
         AlertDialog.Builder builder = new AlertDialog.Builder(cordova.getActivity());
-        builder.setTitle("Extra_ID");
-        builder.setMessage(mStr);
+        builder.setTitle("Alert");
+        builder.setMessage("EXTRA_ID:"+mStr);
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -100,7 +100,9 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
 //                callbackContext.error("");
 //            }
 //        });
-        builder.create().show();
+        if (mStr != null && !"".equals(mStr)) {
+            mDialog = builder.show();
+        }
     }
 
     /**
