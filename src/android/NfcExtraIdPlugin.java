@@ -101,7 +101,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
 //            }
 //        });
         if (mStr != null && !"".equals(mStr)) {
-            mDialog = builder.show();
+            builder.show();
         }
     }
 
