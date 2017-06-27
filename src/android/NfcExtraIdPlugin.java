@@ -52,7 +52,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 }
             }
         } else {
-        	startOrNot = true;
+        	startOrNot = false;
             callbackContext.success("Stop of read task");
             return true;
         }
