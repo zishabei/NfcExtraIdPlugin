@@ -27,7 +27,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
     public static IntentFilter[] mIntentFilter = null;
     public static PendingIntent mPendingIntent = null;
     private CallbackContext callbackContext;
-
+	private boolean startOrNot;
     @Override
     public boolean execute(String action, String rawArgs, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
@@ -44,6 +44,7 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 if (mNfcAdapter.isEnabled()) {
                     if ("extra_id".equals(action)) {
                         callbackContext.success("Start of read task");
+                        startOrNot = true;
                         return true;
                     }
                 } else {
@@ -51,7 +52,9 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
                 }
             }
         } else {
+        	startOrNot = true;
             callbackContext.success("Stop of read task");
+            return true;
         }
         return super.execute(action, rawArgs, callbackContext);
     }
@@ -76,7 +79,9 @@ public class NfcExtraIdPlugin extends CordovaPlugin {
         try {
             mStr = readIdFromTag(intent);
             Log.i(TAG, "onNewIntent: " + readIdFromTag(intent));
-            showDialog(mStr);
+            if(startOrNot){
+            	showDialog(mStr);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

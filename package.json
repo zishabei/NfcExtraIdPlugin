@@ -1,6 +1,6 @@
 {
   "name": "nfcextraidplugin",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "a cordova plugin to capture NFC extra id",
  "cordova": {
     "id": "cordova-plugin-get-nfc-info",
